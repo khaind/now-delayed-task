@@ -1,0 +1,66 @@
+{
+  "name": "now-delayed-task-demo",
+  "version": 2,
+  "scope": "khainguyen",
+  "regions": ["sin1"],
+  "builds": [
+    {
+      "src": "gateway.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "services/email/index.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "services/accounts/index.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "services/inventory/index.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "services/products/index.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "services/reviews/index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "gateway.js"
+    },
+    {
+      "src": "/email",
+      "dest": "/services/email/index.js"
+    },
+    {
+      "src": "/accounts",
+      "dest": "/services/accounts/index.js"
+    },
+    {
+      "src": "/inventory",
+      "dest": "/services/inventory/index.js"
+    },
+    {
+      "src": "/products",
+      "dest": "/services/products/index.js"
+    },
+    {
+      "src": "/reviews",
+      "dest": "/services/reviews/index.js"
+    }
+  ],
+  "env": {
+      "HOST": "federation-demo.khainguyen.now.sh",
+      "EMAIL_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/email",
+      "ACCOUNTS_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/accounts",
+      "INVENTORY_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/inventory",
+      "PRODUCTS_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/products",
+      "REVIEWS_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/reviews"
+  }
+}

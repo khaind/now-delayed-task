@@ -1,0 +1,12 @@
+{
+  "name": "email",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@apollo/federation": "latest",
+    "apollo-server": "latest",
+    "graphql": "latest",
+    "nodemailer": "^6.4.2"
+  }
+}
