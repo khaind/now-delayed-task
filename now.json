@@ -1,7 +1,7 @@
 {
-  "name": "now-delayed-task-demo",
+  "name": "now-delayed-task",
   "version": 2,
-  "scope": "khainguyen",
+  "scope": "khaindk",
   "regions": ["sin1"],
   "builds": [
     {
@@ -56,11 +56,11 @@
     }
   ],
   "env": {
-      "HOST": "federation-demo.khainguyen.now.sh",
-      "EMAIL_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/email",
-      "ACCOUNTS_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/accounts",
-      "INVENTORY_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/inventory",
-      "PRODUCTS_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/products",
-      "REVIEWS_MICRO_ENDPOINT": "https://federation-demo.khainguyen.now.sh/reviews"
+      "HOST": "now-delayed-task.khaindk.now.sh",
+      "EMAIL_MICRO_ENDPOINT": "https://now-delayed-task.khaindk.now.sh/email",
+      "ACCOUNTS_MICRO_ENDPOINT": "https://now-delayed-task.khaindk.now.sh/accounts",
+      "INVENTORY_MICRO_ENDPOINT": "https://now-delayed-task.khaindk.now.sh/inventory",
+      "PRODUCTS_MICRO_ENDPOINT": "https://now-delayed-task.khaindk.now.sh/products",
+      "REVIEWS_MICRO_ENDPOINT": "https://now-delayed-task.khaindk.now.sh/reviews"
   }
 }
