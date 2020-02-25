@@ -4,7 +4,6 @@ const nodemailer = require("nodemailer");
 
 const typeDefs = gql`
   extend type Query {
-    hi(first: Int = 5): String
     sendEmail(amount: Float!): Boolean
     sendEmailAwait(amount: Float!): Boolean
   }
@@ -16,20 +15,20 @@ const sendEmailAsync = async amount => {
   return new Promise((resolve, reject) => {
     console.log(`sendEmailAsync promise`);
     let transporter = nodemailer.createTransport({
-      host: "smtp.mailtrap.io",
-      port: 2525,
+      host: `${process.env.SMTP_HOST}`,
+      port: `${process.env.SMTP_PORT}`,
       auth: {
-        user: "70605ac44f25f2",
-        pass: "047e672658ad8b"
+        user: `${process.env.EMAIL_AUTH_USER}`,
+        pass: `${process.env.EMAIL_AUTH_PASS}`
       }
     });
 
     let message = {
-      from: `federation delayed task zeit now`, // sender address
-      to: `testuser@emaildomain.com`, //process.env.SJMBT_ADMIN_EMAIL_ADDR,
+      from: `federation delayed task zeit now <khainguyen@demo.com>`, // sender address
+      to: `testuser@emaildomain.com`,
       subject: `Test email`,
       text: `
-  New amount is set: ${amount}
+  Top product is fetched ${amount} items
 
   Thank you,` // plain text body
     };
@@ -42,7 +41,7 @@ const sendEmailAsync = async amount => {
       }
       // Only needed when used pooled
       // transporter.close();
-      console.log( `done` );
+      console.log(`done`);
       resolve(info);
     });
   });
@@ -50,10 +49,6 @@ const sendEmailAsync = async amount => {
 
 const resolvers = {
   Query: {
-    hi ( _, args ) {
-      console.log(`hi ... `);
-      return `Hello ${args.first}`;
-    },
     async sendEmailAwait(_, args) {
       let rs = false;
       try {
@@ -90,7 +85,9 @@ const server = new ApolloServer({
   schema: buildFederatedSchema([
     {
       typeDefs,
-      resolvers
+      resolvers,
+      introspection: true, // enables introspection of the schema
+      playground: true // enables the actual playground
     }
   ])
 });

@@ -1,8 +1,5 @@
 const https = require("https");
 module.exports = async (host, message) => {
-  //   data = JSON.stringify({
-  //     query: '{hi(first: 1)}'
-  //   });
   console.log( `delegated with message: ${ message }` );
   var options = {
     hostname: host,
@@ -11,7 +8,7 @@ module.exports = async (host, message) => {
     port: 443,
     headers: {
       "Content-Type": "application/json",
-      "Content-Length": message.length //Buffer.byteLength(message)
+      "Content-Length": message.length
     }
     // body: message
   };
@@ -23,7 +20,7 @@ module.exports = async (host, message) => {
     });
     req.write(message);
     req.end(() => {
-      console.log("NOW it's not λ1's problem anymore.");
+      console.log("Delegated to other serverless function");
       resolve();
     });
   });
