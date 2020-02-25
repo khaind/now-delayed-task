@@ -63,7 +63,7 @@
       "PRODUCTS_MICRO_ENDPOINT": "https://now-delayed-task.khaindk.now.sh/products",
       "REVIEWS_MICRO_ENDPOINT": "https://now-delayed-task.khaindk.now.sh/reviews",
       "SMTP_HOST": "@smtp-host",
-      "SMPT_PORT": "@smtp-port",
+      "SMTP_PORT": "@smtp-port",
       "EMAIL_AUTH_USER": "@email-auth-user",
       "EMAIL_AUTH_PASS": "@email-auth-pass"
   }
