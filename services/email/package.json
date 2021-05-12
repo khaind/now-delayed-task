@@ -7,6 +7,6 @@
     "@apollo/federation": "latest",
     "apollo-server": "latest",
     "graphql": "latest",
-    "nodemailer": "^6.4.2"
+    "nodemailer": "^6.4.16"
   }
 }
